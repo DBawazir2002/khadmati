@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'active' => 'Active',
+    'dis_active' => 'Dis Active',
+    'ar' => 'Arabic',
+    'en' => 'English',
+    'created_by' => 'Created By',
+    'add' => 'Add',
+    'show' => 'Show',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'save' => 'Save',
+    'back' => 'Back',
+    'published' => 'Published',
+    'unpublished' => 'UnPublished',
+    'welcome_dashboard' => 'Welcome to the dashboard',
+    'dashboard' => 'Dashboard',
+    'categories' => 'Categories',
+    'posts' => 'Posts',
+    'total_categories' => 'Total Categories',
+    'total_posts' => 'Total Posts',
+    'settings' => 'Settings',
+    'logout' => 'Logout',
+    'profile' => [
+        'profile_name' => 'Profile',
+    ],
+    'account' => [
+        'delete' => 'Delete account',
+        'delete_message' => 'Delete your account and all of its resources',
+    ],
+    'appearance' => 'Appearance',
+    'language' => 'Language',
+    'password' => [
+        'update' => 'Update Password',
+        'current' => 'Current Password',
+        'new' => 'New Password',
+        'confirm' => 'Confirm Password',
+    ],
+    'theme' => [
+        'theme_name' => 'Theme',
+        'light' => 'Light',
+        'dark' => 'Dark',
+        'system' => 'System',
+    ],
+    'action' => 'Action',
+    'actions' => 'Actions',
+    'login' => 'Login',
+
+];

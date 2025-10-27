@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface IAuthService
 {
-    public function login(array $credentials): array;
+    public function login(string $phone, string $password, bool $remember = false): void;
 
     public function logout(): void;
 }

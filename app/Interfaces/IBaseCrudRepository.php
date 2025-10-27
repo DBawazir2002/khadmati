@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
-interface IBaseService
+interface IBaseCrudRepository extends IBaseRepository
 {
     public function index(array $data): LengthAwarePaginator|null|Collection;
 
@@ -19,6 +19,4 @@ interface IBaseService
     public function delete(string $id): void;
 
     public function count(): int;
-
-
 }

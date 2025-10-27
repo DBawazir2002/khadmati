@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'get_data' => 'تم جلب البيانات بنجاح.',
+    'create_data' => 'تم حفظ البيانات بنجاح.',
+    'update_data' => 'تم تحديث البيانات بنجاح.',
+    'delete_data' => 'تم حذف البيانات بنجاح.',
+    'validation_error' => 'البيانات المقدمة غير صالحة.',
+    'update_profile' => 'حدّث اسمك وعنوان بريدك الإلكتروني',
+    'update_password' => 'تأكد إن حسابك يستخدم كلمة سر طويلة وعشوائية عشان يكون آمن',
+    'not_found_data' => 'العنصر مش موجود، رجع للصفحة الرئيسية.',
+    'empty_categories' => 'الأقسام فاضية، عبّيها أولاً',
+    'success_stored' => 'تم الحفظ بنجاح',
+    'success_updated' => 'تم التحديث بنجاح',
+    'success_deleted' => 'تم الحذف بنجاح',
+    'failed_store' => 'فشل في الحفظ',
+    'failed_update' => 'فشل في التحديث',
+    'failed_delete' => 'فشل في الحذف',
+    'update_appearance' => 'تحديث إعدادات المظهر لحسابك',
+    'update_language' => 'تحديث إعدادات اللغة لحسابك',
+    'delete_message' => 'هل أنت متأكد أنك تريد حذف هذا المورد؟',
+    'confirm_delete' => 'نعم، أنا متأكد',
+    'cancel_delete' => 'لا، إلغاء',
+    'add_category' => 'اضافة تصنيف',
+    'edit_category' => 'تعديل التصنيف',
+    'show_category' => 'عرض التصنيف',
+    'add_post' => 'اضافة منشور',
+    'edit_post' => 'تعديل منشور',
+    'show_post' => 'عرض منشور',
+    'choose_category' => 'اختار التصنيف',
+    'login_note' => 'سجّل دخولك إلى حسابك'
+];

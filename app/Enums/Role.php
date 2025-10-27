@@ -17,4 +17,22 @@ enum Role : string
     {
         return $this->name;
     }
+
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::ADMIN => 'مدير',
+            self::WORKER => 'مقدم الخدمة',
+        };
+    }
+
+    public static function findFrom($role): bool
+    {
+        return match ($role) {
+            self::ADMIN->value => true,
+            self::WORKER->value => true,
+            default => false
+        };
+    }
 }

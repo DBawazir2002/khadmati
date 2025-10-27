@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'active' => 'مفعل',
+    'dis_active' => 'غير مفعل',
+    'ar' => 'العربية',
+    'en' => 'الانجليزية',
+    'created_by' => 'تم الانشاء بواسطة',
+    'add' => 'اضافة',
+    'show' => 'عرض',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'save' => 'حفظ',
+    'back' => 'الخلف',
+    'published' => 'منشور',
+    'unpublished' => 'غير منشور',
+    'categories' => 'التصنيفات',
+    'posts' => 'المنشورات',
+    'welcome_dashboard' => 'مرحبًا بك في لوحة التحكم',
+    'dashboard' => 'لوحة التحكم',
+    'total_categories' => 'مجموع التصنيفات',
+    'total_posts' => 'مجموع المنشورات',
+    'settings' => 'الاعدادات',
+    'logout' => 'تسجيل الخروج',
+    'profile' => [
+        'profile_name' => 'الملف الشخصي',
+    ],
+    'account' => [
+        'delete' => 'حذف الحساب',
+        'delete_message' => 'احذف حسابك وكل موارده',
+    ],
+    'appearance' => 'المظهر',
+    'language' => 'اللغة',
+    'password' => [
+        'update' => 'تحديث كلمة السر',
+        'current' => 'كلمة السر الحالية',
+        'new' => 'كلمة السر الجديدة',
+        'confirm' => 'تأكيد كلمة السر',
+    ],
+    'theme' => [
+        'theme_name' => 'السِمة',
+        'light' => 'فاتح',
+        'dark' => 'غامق',
+        'system' => 'النظام',
+    ],
+    'action' => 'الاجراء',
+    'actions' => 'الاجراءات',
+    'login' => 'تسجيل الدخول',
+
+];

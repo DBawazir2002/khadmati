@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'get_data' => 'Resource fetched successfully.',
+    'create_data' => 'Resource created successfully.',
+    'update_data' => 'Resource updated successfully.',
+    'delete_data' => 'Resource deleted successfully.',
+    'update_profile' => 'Update your name and email address',
+    'update_password' => 'Ensure your account is using a long, random password to stay secure',
+    'not_found_data' => 'Element not found please go back to main page.',
+    'validation_error' => 'The given data was invalid.',
+    'empty_categories' => 'Categories are empty fill them first',
+    'success_stored' => 'Stored Successfully',
+    'success_updated' => 'Updated Successfully',
+    'success_deleted' => 'Deleted Successfully',
+    'failed_store' => 'Failed to store',
+    'failed_update' => 'Failed to update',
+    'failed_delete' => 'Failed to delete',
+    'update_appearance' => 'Update the appearance settings for your account',
+    'update_language' => 'Update the language settings for your account',
+    'delete_message' => 'Are you sure you want to delete this resource?',
+    'confirm_delete' => "Yes, I'm sure",
+    'cancel_delete' => 'No, cancel',
+    'add_category' => 'Add Category',
+    'edit_category' => 'Edit Category',
+    'show_category' => 'Show Category',
+    'add_post' => 'Add Post',
+    'edit_post' => 'Edit Post',
+    'show_post' => 'Show Post',
+    'choose_category' => 'Choose Category',
+    'login_note' => 'Login to your account'
+];
