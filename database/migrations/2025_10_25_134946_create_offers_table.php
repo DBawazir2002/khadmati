@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('details');
             $table->foreignUuid('category_id')->constrained('categories')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
             $table->fullText(['name', 'details']);
         });

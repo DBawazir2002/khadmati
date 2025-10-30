@@ -14,7 +14,10 @@ class Offer extends Model implements HasMedia
 
     protected $fillable = [
         'name',
-        'category_id'
+        'details',
+        'category_id',
+        'start_date',
+        'end_date'
     ];
 
     public function category(): BelongsTo
@@ -26,5 +29,18 @@ class Offer extends Model implements HasMedia
     {
         $this->addMediaCollection('image')
             ->singleFile();
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'start_date' => 'date',
+            'end_date' => 'date',
+        ];
     }
 }

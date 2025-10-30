@@ -22,7 +22,7 @@ class Service extends Model implements HasMedia
     {
         return $this->belongsTo(Category::class);
     }
-    public function services(): BelongsToMany
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'service_user')
             ->withPivot('details');
