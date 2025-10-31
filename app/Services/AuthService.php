@@ -14,7 +14,7 @@ class AuthService implements IAuthService
     /**
      * @throws LogicException
      */
-    public function login(string $phone, string $password, bool $remember = false): void
+    public function login(string $phone, string $password, bool $remember = false): string
     {
         ensureIsNotRateLimited(request());
 
@@ -35,11 +35,11 @@ class AuthService implements IAuthService
 
         RateLimiter::clear(throttleKey(request()));
 
-        request()->session()->regenerate();
+        return auth()->user()->createToken('user-accessible')->plainTextToken;
     }
 
     public function logout(): void
     {
-        Auth::logout();
+        auth()->user()->tokens()->delete();
     }
 }

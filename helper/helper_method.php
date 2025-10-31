@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 
 function defaultPassword(): string
 {
-    return 'password';
+    return 'Pa$$w(360)Rd';
 }
 
 function isFile($file): bool

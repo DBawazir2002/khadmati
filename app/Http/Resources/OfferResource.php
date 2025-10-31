@@ -21,7 +21,7 @@ class OfferResource extends JsonResource
 
         $remainingDay = match ($offerEndDate->isFuture()) {
             true => $currentDate->diffInDays($offerEndDate),
-            default => -1
+            default => 0
         };
 
         return [

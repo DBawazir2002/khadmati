@@ -10,11 +10,11 @@ interface IBaseCrudRepository extends IBaseRepository
 {
     public function index(array $data): LengthAwarePaginator|null|Collection;
 
-    public function find(string $column, string $value): Model;
+    public function find(string $column, string $value);
 
-    public function store(array $data): Model;
+    public function store(array $data);
 
-    public function update(string $id, array $data): Model;
+    public function update(string $id, array $data);
 
     public function delete(string $id): void;
 

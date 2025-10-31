@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Http\JsonResponse;
+use \Illuminate\Http\Response;
 
-function sendSuccessResponse($message = 'successful', $data = null, $status_code = 200): JsonResponse
+function sendSuccessResponse($message = 'successful', $data = null, $status_code = 200): JsonResponse|Response
 {
     $response = [
         'status' => 'success',
@@ -10,7 +11,7 @@ function sendSuccessResponse($message = 'successful', $data = null, $status_code
         'data' => $data,
     ];
 
-    return response()->json($response, $status_code);
+    return $status_code !== 204 ? response()->json($response, $status_code) : response()->noContent();
 }
 
 function sendFailedResponse($message = 'failed', $errors = null, $status_code = 404, $data = null): JsonResponse

@@ -30,22 +30,22 @@ class ServiceService implements IServiceService
         return $this->repository->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->repository->find($column, $value);
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         $service = $this->repository->store($data);
-        $service->addMediaFromRequest('image');
+        $service->addMediaFromRequest('image')->toMediaCollection('image');
         return $service;
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $service = $this->repository->update($id, $data);
-        $service->addMediaFromRequest('image');
+        $service->addMediaFromRequest('image')->toMediaCollection('image');
         return $service;
     }
 

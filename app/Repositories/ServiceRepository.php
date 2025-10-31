@@ -23,17 +23,17 @@ class ServiceRepository extends BaseRepository implements IServiceRepository
         return $this->makeInstanceOfModel()->query()->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->makeInstanceOfModel()->query()->where($column, $value)->firstOrFail();
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         return $this->makeInstanceOfModel()->query()->create($data);
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $service = $this->find('id', $id);
         $service->update($data);

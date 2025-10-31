@@ -30,22 +30,22 @@ class OfferService implements IOfferService
         return $this->repository->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->repository->find($column, $value);
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         $offer = $this->repository->store($data);
-        $offer->addMediaFromRequest('image');
+        $offer->addMediaFromRequest('image')->toMediaCollection('image');
         return $offer;
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $offer = $this->repository->update($id, $data);
-        $offer->addMediaFromRequest('image');
+        $offer->addMediaFromRequest('image')->toMediaCollection('image');
         return $offer;
     }
 

@@ -18,10 +18,10 @@ class RolesAndPermissionsSeeder extends Seeder
 
 
         // create permissions
-        Permission::create(['name' => 'manage-workers']);
-        Permission::create(['name' => 'create-workers']);
-        Permission::create(['name' => 'edit-workers']);
-        Permission::create(['name' => 'view-workers']);
+        Permission::create(['name' => 'manage-users']);
+        Permission::create(['name' => 'create-users']);
+        Permission::create(['name' => 'edit-users']);
+        Permission::create(['name' => 'view-users']);
 
         Permission::create(['name' => 'manage-services']);
         Permission::create(['name' => 'create-services']);

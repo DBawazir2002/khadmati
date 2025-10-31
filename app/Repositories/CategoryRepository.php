@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Interfaces\Category\ICategoryRepository;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -22,17 +23,17 @@ class CategoryRepository extends BaseRepository implements ICategoryRepository
         return $this->makeInstanceOfModel()->query()->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->makeInstanceOfModel()->query()->where($column, $value)->firstOrFail();
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         return $this->makeInstanceOfModel()->query()->create($data);
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $category = $this->find('id', $id);
         $category->update($data);

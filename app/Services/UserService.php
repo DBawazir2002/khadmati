@@ -30,12 +30,12 @@ class UserService implements IUserService
         return $this->repository->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->repository->find($column, $value);
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         $user = $this->repository->store($data);
         if(request()->has('image')) {
@@ -44,7 +44,7 @@ class UserService implements IUserService
         return $user;
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $user = $this->repository->update($id, $data);
         if(request()->has('image')) {

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\Category\ICategoryRepository;
 use App\Interfaces\Category\ICategoryService;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -30,22 +31,22 @@ class CategoryService implements ICategoryService
         return $this->repository->count();
     }
 
-    public function find(string $column, string $value): Model
+    public function find(string $column, string $value)
     {
         return $this->repository->find($column, $value);
     }
 
-    public function store(array $data): Model
+    public function store(array $data)
     {
         $category = $this->repository->store($data);
-        $category->addMediaFromRequest('image');
+        $category->addMediaFromRequest('image')->toMediaCollection('image');
         return $category;
     }
 
-    public function update(string $id, array $data): Model
+    public function update(string $id, array $data)
     {
         $category = $this->repository->update($id, $data);
-        $category->addMediaFromRequest('image');
+        $category->addMediaFromRequest('image')->toMediaCollection('image');
         return $category;
     }
 
