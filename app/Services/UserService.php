@@ -38,8 +38,19 @@ class UserService implements IUserService
     public function store(array $data)
     {
         $user = $this->repository->store($data);
+        match ($data['role'] == RoleEnum::WORKER->value) {
+            true => $this->assignRole($data['role'], $user),
+            default => null
+        };
+
+        if($user->hasRole(RoleEnum::WORKER->value) and !empty($data['services']) and !empty($data['services_details'])) {
+            for ($i = 0; $i < count($data['services']); $i++) {
+                $pivotData = ['details' => $data['services_details'][$i]];
+                $user->services()->attach($data['services'][$i],$pivotData);
+            }
+        }
         if(request()->has('image')) {
-            $user->addMediaFromRequest('image');
+            $user->addMediaFromRequest('image')->toMediaCollection('image');
         }
         return $user;
     }
@@ -47,8 +58,14 @@ class UserService implements IUserService
     public function update(string $id, array $data)
     {
         $user = $this->repository->update($id, $data);
+        if($user->hasRole(RoleEnum::WORKER->value) and !empty($data['services']) and !empty($data['services_details'])) {
+            for ($i = 0; $i < count($data['services']); $i++) {
+                $pivotData = ['details' => $data['services_details'][$i]];
+                $user->services()->sync($data['services'][$i],$pivotData);
+            }
+        }
         if(request()->has('image')) {
-            $user->addMediaFromRequest('image');
+            $user->addMediaFromRequest('image')->toMediaCollection('image');
         }
         return $user;
     }

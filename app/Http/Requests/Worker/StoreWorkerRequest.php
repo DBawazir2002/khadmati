@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Worker;
 
 use App\Enums\MobilePrefix;
 use App\Models\User;
@@ -8,7 +8,7 @@ use App\Traits\failedValidationApiTrait;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class StoreWorkerRequest extends FormRequest
 {
     use failedValidationApiTrait;
     /**
@@ -16,7 +16,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->user()->can('edit-users');
+        return auth()->user()->can('create-users');
     }
 
     /**
@@ -28,22 +28,18 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => [
-                'sometimes',
                 'required',
                 'string',
                 'max:255',
             ],
             'phone' => [
-                'sometimes',
                 'required',
                 'string',
                 'digits:9',
-                Rule::unique(User::class)
-                    ->ignore($this->id),
+                 Rule::unique(User::class),
                 'starts_with:' . implode(",", MobilePrefix::values())
             ],
             'address' => [
-                'sometimes',
                 'required',
                 'string',
                 'max:255',
@@ -56,6 +52,22 @@ class UpdateUserRequest extends FormRequest
                 'mimetypes:image/jpeg,image/png',
                 'max:2048'
             ],
+            'services' => [
+                'required',
+                'array'
+            ],
+            'services.*' => [
+                'required_with:services',
+                'exists:services,id'
+            ],
+            'services_details' => [
+                'required',
+                'array'
+            ],
+            'services_details.*' => [
+                'required_with:services_details',
+                'string'
+            ]
         ];
     }
 

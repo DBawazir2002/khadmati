@@ -17,7 +17,11 @@ class ServiceResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'category' => new CategoryResource($this->category),
+            'image' => $this->getFirstMediaUrl('image'),
+            'category' => [
+                'id' => $this->category->id,
+                'name' => $this->category->name,
+            ],
             'users_count' => $this->users->count(),
             'users' => UserResource::collection($this->users),
         ];

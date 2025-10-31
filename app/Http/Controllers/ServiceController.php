@@ -56,7 +56,7 @@ class ServiceController extends Controller
 
         $service = ($this->service->update(id: $id, data: $data))->toResource();
 
-        return sendSuccessResponse(message: 'تم ارجاع الخدمة بنجاح',data: $service);
+        return sendSuccessResponse(message: 'تم تحديث الخدمة بنجاح',data: $service);
     }
 
     /**

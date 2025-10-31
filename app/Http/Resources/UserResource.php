@@ -20,9 +20,7 @@ class UserResource extends JsonResource
             'phone' => $this->phone,
             'address' => $this->address,
             'image' => $this->getFirstMediaUrl('image'),
-            'details' => $this->whenPivotLoaded('service_user', function () {
-                return $this->pivot->details;
-            }),
+            'services_details' => $this->when($this->services, $this->services, null),
         ];
     }
 }

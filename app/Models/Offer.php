@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Policies\OfferPolicy;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+#[UsePolicy(OfferPolicy::class)]
 class Offer extends Model implements HasMedia
 {
     use HasUuids, InteractsWithMedia;

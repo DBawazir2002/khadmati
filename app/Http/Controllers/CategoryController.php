@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
         $category = ($this->categoryService->update(id: $id, data: $data))->toResource();
 
-        return sendSuccessResponse(message: 'تم ارجاع التصنيف بنجاح',data: $category);
+        return sendSuccessResponse(message: 'تم تحديث التصنيف بنجاح',data: $category);
     }
 
     /**

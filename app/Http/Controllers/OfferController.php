@@ -56,7 +56,7 @@ class OfferController extends Controller
 
         $offer = ($this->offerService->update(id: $id, data: $data))->toResource();
 
-        return sendSuccessResponse(message: 'تم ارجاع العرض بنجاح',data: $offer);
+        return sendSuccessResponse(message: 'تم تحديث العرض بنجاح',data: $offer);
     }
 
     /**
