@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin',
-            'phone' => '772219245',
+            'phone' => '777777777',
             'password' => 'password',
             'address' => 'Yemen',
             'phone_verified_at' => now(),
