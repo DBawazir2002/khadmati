@@ -23,19 +23,19 @@ class UserRepository extends BaseRepository implements IUserRepository
 
     public function list($data): Collection|array|null
     {
-        $shops = collect();
+        $users = collect();
 
         $query = $this->makeInstanceOfModel()->query();
 
         $query->when(!empty($data['role']) and RoleEnum::findFrom($data['role']), fn($q) => $q->role($data['role']));
 
-        $query->chunk(500, function ($chunk) use (&$shops) {
-            foreach ($chunk as $shop) {
-                $shops->push($shop);
+        $query->chunk(500, function ($chunk) use (&$users) {
+            foreach ($chunk as $user) {
+                $users->push( $user);
             }
         });
 
-        return $shops;
+        return $users;
     }
 
     public function count(): int

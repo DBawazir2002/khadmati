@@ -28,7 +28,10 @@ class OfferResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'details' => $this->details,
-            'category' => new CategoryResource($this->category),
+            'category' => [
+                'id' => $this->category->id,
+                'name' => $this->category->name,
+            ],
             'start_date' => $this->start_date->format('Y-m-d'),
             'end_date' => $this->end_date->format('Y-m-d'),
             'duration' => $offerStartDate->diffInDays($this->end_date),

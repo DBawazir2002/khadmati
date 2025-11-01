@@ -14,7 +14,7 @@ class OfferRepository extends BaseRepository implements IOfferRepository
     public function index(array $data): LengthAwarePaginator|null|Collection
     {
         $query = $this->makeInstanceOfModel()->query();
-
+        $query->latest();
         return $query->paginate();
     }
 

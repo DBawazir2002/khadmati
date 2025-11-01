@@ -34,7 +34,6 @@ class StoreOfferRequest extends FormRequest
                 Rule::unique(Offer::class)
             ],
             'details' => [
-                'sometimes',
                 'required',
                 'string'
             ],
