@@ -1,6 +1,6 @@
 # Khadmati
 
-## 🚀 Setup
+## Setup
 
 ### Installation
 
