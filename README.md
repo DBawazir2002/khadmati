@@ -32,6 +32,15 @@
    php artisan storage:link
     ```
 
+*To Access The API Docs:* 
+
+```(APP_URL) . docs/api``` 
+
+example: 
+```bash 
+127.0.0.1:8000/docs/api
+```
+
 *Default Credentials For Access Dashboard:*
 1. *phone: ```777777777```*
 2. *password: ```password```*
