@@ -33,18 +33,16 @@ class UpdateCategoryRequest extends FormRequest
                 Rule::unique('categories')
                     ->ignore($this->id)
             ],
+            'icon' => [
+                'sometimes',
+                'required',
+                'string',
+                'max:255',
+            ],
             'description' => [
                 'sometimes',
                 'required',
                 'string'
-            ],
-            'image' => [
-                'sometimes',
-                'required',
-                'file',
-                'mimes:png,jpg,jpeg',
-                'mimetypes:image/jpeg,image/png',
-                'max:2048'
             ],
         ];
     }
@@ -54,7 +52,7 @@ class UpdateCategoryRequest extends FormRequest
         return [
             'name' => 'اسم',
             'description' => 'وصف',
-            'image' => 'صورة'
+            'icon' => 'ايقونة'
         ];
     }
 }

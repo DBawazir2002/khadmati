@@ -25,7 +25,7 @@ class CategoryRepository extends BaseRepository implements ICategoryRepository
 
     public function find(string $column, string $value)
     {
-        return $this->makeInstanceOfModel()->query()->where($column, $value)->firstOrFail();
+        return $this->makeInstanceOfModel()->query()->with(['services'])->where($column, $value)->firstOrFail();
     }
 
     public function store(array $data)

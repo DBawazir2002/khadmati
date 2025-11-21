@@ -42,8 +42,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
+        $category = $this->categoryService->find('id', $id);
         return sendSuccessResponse(message: 'تم ارجاع التصنيف بنجاح',data: $category->toResource());
     }
 

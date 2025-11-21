@@ -11,23 +11,18 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 #[UsePolicy(CategoryPolicy::class)]
-class Category extends Model implements HasMedia
+class Category extends Model
 {
     use HasUuids, InteractsWithMedia;
 
     protected $fillable = [
         'name',
+        'icon',
         'description'
     ];
 
     public function services(): HasMany
     {
         return $this->hasMany(Service::class);
-    }
-
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('image')
-            ->singleFile();
     }
 }

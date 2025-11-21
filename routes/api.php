@@ -17,9 +17,20 @@ Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
 
 Route::get('/offers', [OfferController::class, 'index']);
 
-Route::get('/categories', [CategoryController::class, 'index']);
+Route::controller(CategoryController::class)
+    ->prefix('categories')
+    ->group(function (){
+    Route::get('/', 'index');
+    Route::get('/{category}', 'show');
+});
 
-Route::get('/services', [ServiceController::class, 'index']);
+
+Route::controller(ServiceController::class)
+    ->prefix('services')
+    ->group(function (){
+        Route::get('/', 'index');
+        Route::get('/{service}', 'show');
+    });
 
 Route::middleware('auth:sanctum')
     ->prefix('dashboard')

@@ -18,8 +18,8 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->getFirstMediaUrl('image'),
-            'services' => ServiceResource::collection($this->services),
+            'icon' => $this->icon,
+            'services' => $this->when($this->relationLoaded('services'), ServiceResource::collection($this->services))
         ];
     }
 }

@@ -31,17 +31,15 @@ class StoreCategoryRequest extends FormRequest
                 'string',
                 'max:255',
                 Rule::unique(Category::class)
+            ],'
+            icon' => [
+                'required',
+                'string',
+                'max:255',
             ],
             'description' => [
                 'required',
                 'string'
-            ],
-            'image' => [
-                'required',
-                'file',
-                'mimes:png,jpg,jpeg',
-                'mimetypes:image/jpeg,image/png',
-                'max:2048'
             ],
         ];
     }
@@ -51,7 +49,7 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name' => 'اسم',
             'description' => 'وصف',
-            'image' => 'صورة'
+            'icon' => 'ايقونة'
         ];
     }
 }
