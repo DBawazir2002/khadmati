@@ -45,7 +45,9 @@ class OfferService implements IOfferService
     public function update(string $id, array $data)
     {
         $offer = $this->repository->update($id, $data);
-        $offer->addMediaFromRequest('image')->toMediaCollection('image');
+        if(request()->hasFile('image')){
+            $offer->addMediaFromRequest('image')->toMediaCollection('image');
+        }
         return $offer;
     }
 

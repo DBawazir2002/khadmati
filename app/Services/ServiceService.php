@@ -45,7 +45,9 @@ class ServiceService implements IServiceService
     public function update(string $id, array $data)
     {
         $service = $this->repository->update($id, $data);
-        $service->addMediaFromRequest('image')->toMediaCollection('image');
+        if(request()->hasFile('image')){
+            $service->addMediaFromRequest('image')->toMediaCollection('image');
+        }
         return $service;
     }
 

@@ -47,6 +47,9 @@ class CategoryService implements ICategoryService
     {
         $category = $this->repository->update($id, $data);
         $category->addMediaFromRequest('image')->toMediaCollection('image');
+        if(request()->hasFile('image')){
+            $category->addMediaFromRequest('image')->toMediaCollection('image');
+        }
         return $category;
     }
 
