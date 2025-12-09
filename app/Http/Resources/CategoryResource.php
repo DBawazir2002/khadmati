@@ -29,7 +29,8 @@ class CategoryResource extends JsonResource
         $imageUrl = null;
         if($mediaItem = $this->getFirstMedia('image')){
             $storageUrl = (Storage::url($mediaItem->id . '/' . $mediaItem->file_name));
-            $imageUrl = app()->isProduction() ?  'public/' . $storageUrl : $storageUrl;
+//            $imageUrl = app()->isProduction() ?  'public/' . $storageUrl : $storageUrl;
+            $imageUrl = 'public/' . $storageUrl;
         }
         return $imageUrl;
     }
