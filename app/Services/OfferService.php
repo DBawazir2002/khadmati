@@ -38,7 +38,9 @@ class OfferService implements IOfferService
     public function store(array $data)
     {
         $offer = $this->repository->store($data);
-        $offer->addMediaFromRequest('image')->toMediaCollection('image');
+        if(request()->hasFile('image')){
+            $offer->addMediaFromRequest('image')->toMediaCollection('image');
+        }
         return $offer;
     }
 

@@ -38,7 +38,9 @@ class ServiceService implements IServiceService
     public function store(array $data)
     {
         $service = $this->repository->store($data);
-        $service->addMediaFromRequest('image')->toMediaCollection('image');
+        if(request()->hasFile('image')){
+            $service->addMediaFromRequest('image')->toMediaCollection('image');
+        }
         return $service;
     }
 
