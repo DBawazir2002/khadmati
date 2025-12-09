@@ -16,7 +16,7 @@ Route::get('/test', function () {
     return response()->json('test');
 });
 
-Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/offers', [OfferController::class, 'index']);
 
