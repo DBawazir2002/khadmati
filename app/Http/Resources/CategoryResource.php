@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryResource extends JsonResource
 {
@@ -18,8 +19,17 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->getFirstMediaUrl('image'),
+            'image' => $this->getImageUrl(),
             'services' => $this->when($this->relationLoaded('services'), ServiceResource::collection($this->services))
         ];
+    }
+
+    private function getImageUrl(): ?string
+    {
+        $imageUrl = null;
+        if($mediaItem = $this->getFirstMedia('image')){
+            $imageUrl = (Storage::url($mediaItem->id . '/' . $mediaItem->file_name));
+        }
+        return $imageUrl;
     }
 }
