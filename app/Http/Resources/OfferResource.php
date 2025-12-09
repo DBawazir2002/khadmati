@@ -2,12 +2,15 @@
 
 namespace App\Http\Resources;
 
+use App\Traits\GetImageUrlTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class OfferResource extends JsonResource
 {
+    use GetImageUrlTrait;
+
     /**
      * Transform the resource into an array.
      *
@@ -36,7 +39,7 @@ class OfferResource extends JsonResource
             'end_date' => $this->end_date->format('Y-m-d'),
             'duration' => $offerStartDate->diffInDays($this->end_date),
             'remaining_days' => $remainingDay,
-            'image' => $this->getFirstMediaUrl('image'),
+            'image' => $this->getImageUrl(),
         ];
     }
 

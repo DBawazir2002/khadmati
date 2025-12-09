@@ -2,11 +2,14 @@
 
 namespace App\Http\Resources;
 
+use App\Traits\GetImageUrlTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
 {
+    use GetImageUrlTrait;
+
     /**
      * Transform the resource into an array.
      *
@@ -19,7 +22,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'phone' => $this->phone,
             'address' => $this->address,
-            'image' => $this->getFirstMediaUrl('image'),
+            'image' => $this->getImageUrl(),
             'services_details' => $this->when($this->services, $this->services, null),
         ];
     }

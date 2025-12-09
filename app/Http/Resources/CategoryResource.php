@@ -2,12 +2,14 @@
 
 namespace App\Http\Resources;
 
+use App\Traits\GetImageUrlTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryResource extends JsonResource
 {
+    use GetImageUrlTrait;
     /**
      * Transform the resource into an array.
      *
@@ -24,14 +26,4 @@ class CategoryResource extends JsonResource
         ];
     }
 
-    private function getImageUrl(): ?string
-    {
-        $imageUrl = null;
-        if($mediaItem = $this->getFirstMedia('image')){
-            $storageUrl = (Storage::url($mediaItem->id . '/' . $mediaItem->file_name));
-//            $imageUrl = app()->isProduction() ?  'public/' . $storageUrl : $storageUrl;
-            $imageUrl = url('/public' . $storageUrl);
-        }
-        return $imageUrl;
-    }
 }

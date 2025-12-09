@@ -2,11 +2,14 @@
 
 namespace App\Http\Resources;
 
+use App\Traits\GetImageUrlTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceResource extends JsonResource
 {
+    use GetImageUrlTrait;
+
     /**
      * Transform the resource into an array.
      *
@@ -17,7 +20,7 @@ class ServiceResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => $this->getFirstMediaUrl('image'),
+            'image' => $this->getImageUrl(),
             'category' => [
                 'id' => $this->category->id,
                 'name' => $this->category->name,
