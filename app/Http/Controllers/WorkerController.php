@@ -78,7 +78,7 @@ class WorkerController extends Controller
 
             $this->userService->delete(id: $user->id);
 
-            return sendSuccessResponse(status_code: 204);
+            return sendSuccessResponse(message: __('messages.delete_data'));
         }
         return sendFailedResponse();
 

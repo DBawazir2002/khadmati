@@ -66,6 +66,6 @@ class OfferController extends Controller
     {
         $this->offerService->delete(id: $id);
 
-        return sendSuccessResponse(status_code: 204);
+        return sendSuccessResponse(message: __('messages.delete_data'));
     }
 }
