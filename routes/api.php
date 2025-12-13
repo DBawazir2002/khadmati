@@ -8,14 +8,6 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/user', function (Request $request) {
-//    return $request->user();
-//})->middleware('auth:sanctum');
-
-Route::get('/test', function () {
-    return response()->json('test');
-});
-
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/offers', [OfferController::class, 'index']);
